@@ -52,7 +52,7 @@ Responds with the current balance and unlocked (spendable) balance of the wallet
 
 Parameters:
 
-* `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
     
 Example response: 
 
@@ -71,7 +71,7 @@ Responds with the Monero address of the wallet.
 
 Parameters:
 
-* `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 Example response:
 
@@ -100,11 +100,142 @@ Parameters:
             pid: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment) 
         }
     
-* `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 Example response:
 
 ```
 { tx_hash: '<b9272a68b0f242769baa1ac2f723b826a7efdc5ba0c71a2feff4f292967936d8>', tx_key: '' }
 ```
-    
+
+### bulkTransfer (coming soon)
+
+Transfers Monero to a group of recipients in a single transaction.
+
+### splitTransfer (coming soon)
+
+Same as transfer, but can split into more than one transaction if necessary.
+
+### sweep
+Usage:
+
+```
+Wallet.sweep(callback);
+```
+
+Sends all dust outputs back to the wallet, to make funds easier to spend and mix. Responds with a list of the corresponding transaction hashes.
+
+Parameters:
+
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+
+Example response:
+
+```
+{ tx_hash_list: [ '<75c666fc96120a643321a5e76c0376b40761582ee40cc4917e8d1379a2c8ad9f>' ] }
+```
+
+### getPayments
+Usage:
+
+```
+Wallet.getPayments(paymentID, callback);
+```
+
+Returns a list of incoming payments using a given payment ID.
+
+Parameters:
+
+* `paymentID` - the payment ID to scan wallet for included transactions (*string*)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+
+
+### getBulkPayments
+Usage:
+
+```
+Wallet.getBulkPayments(paymentIDs, minHeight, callback);
+```
+
+Returns a list of incoming payments using a single payment ID or a list of payment IDs from a given height.
+
+Parameters:
+
+* `paymentIDs` - the payment ID or list of IDs to scan wallet for (*array*)
+* `minHeight` - the minimum block height to begin scanning from (example: 800000) (*number*)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+
+### incomingTransfers
+Usage:
+
+```
+Wallet.incomingTransfers(type, callback);
+```
+
+Returns a list of incoming transfers to the wallet.
+
+Parameters:
+
+* `type` - accepts `"all"`: all the transfers, `"available"`: only transfers that are not yet spent, or `"unavailable"`: only transfers which have been spent (*string*)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+
+### queryKey
+Usage:
+
+```
+Wallet.queryKey(type, callback);
+```
+
+Returns the wallet's spend key (mnemonic seed) or view private key.
+
+Parameters:
+
+* `type` - accepts `"mnemonic"`: the mnemonic seed for restoring the wallet, or `"view_key"`: the wallet's view key (*string*)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+
+### integratedAddress
+Usage:
+
+```
+Wallet.integratedAddress(paymentID, callback);
+```
+
+OR:
+
+```
+Wallet.integratedAddress(callback);
+```
+
+Make and return a new integrated address from your wallet address and a payment ID.
+
+Parameters:
+
+* `paymentID` - a 64 character hex string. if not provided, a random payment ID is generated. (*string*, optional)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+
+Example response:
+
+```
+{ integrated_address: '4HCSju123guax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ96NYBVqEd6JAu9j3gk' }
+```
+
+### splitIntegrated
+Usage:
+
+```
+Wallet.splitIntegrated(address, callback);
+```
+
+Returns the standard address and payment ID corresponding to a given integrated address.
+
+Parameters:
+
+* `address` - an integrated Monero address (*string*)
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+
+Example response:
+
+```
+{ payment_id: '<61eec5ffd3b9cb57>',
+  standard_address: '47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp' }
+```
