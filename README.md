@@ -2,13 +2,14 @@
 
 A Node.js wallet manager for interacting with Monero's simplewallet over JSON-RPC. 
 
-## Install the package via NPM
+## Install the package 
 
+### via NPM
 ```
 npm install monero-nodejs
 ```
 
-## Or clone the Github repository
+### Or clone the Github repository
 ```
 git clone https://github.com/PsychicCat/monero-nodejs.git
 ```

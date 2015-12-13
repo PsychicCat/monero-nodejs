@@ -10,4 +10,3 @@ Wallet.transfer('489aMnxwT65NCHAVTvdDQrVw8655oAn1xS28dnvzijmAc2Ru1ksVbgR5bkhHSfE
 });
 
 
-
