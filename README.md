@@ -4,6 +4,10 @@ A Node.js wallet manager for interacting with Monero's simplewallet over JSON-RP
 
 For more information about Monero, visit: https://getmonero.org/home
 
+Donations:
+
+XMR: `47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp`
+
 ## Install the package 
 
 ### via NPM
