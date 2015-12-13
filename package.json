@@ -12,9 +12,14 @@
   },
   "keywords": [
     "Monero",
+    "crypto",
+    "currency",
+    "poloniex",
+    "shapeshift",
     "cryptocurrency",
     "Node.js",
     "simplewallet",
+    "bitcoin",
     "bitmonerod"
   ],
   "author": "Brendan Telzrow",
@@ -27,3 +32,4 @@
     "request": "^2.67.0"
   }
 }
+4@94Qivs4j!p!6^1v$
