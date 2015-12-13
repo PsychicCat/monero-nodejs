@@ -29,8 +29,8 @@ var Wallet = new moneroWallet();
 
 This creates a wallet using the following simplewallet default RPC settings:
    
-    * `host` - http://127.0.0.1
-    * `port` - 18082
+* `host` - http://127.0.0.1
+* `port` - 18082
 
 To connect to a wallet with different settings, create an instance with these parameters:
 
@@ -51,7 +51,7 @@ Responds with the current balance and unlocked (spendable) balance of the wallet
 
 Parameters:
 
-    * `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
+* `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
     
 Example response: 
 
@@ -70,7 +70,7 @@ Responds with the Monero address of the wallet.
 
 Parameters:
 
-    * `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
+* `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
 
 Example response:
 
@@ -89,14 +89,17 @@ Transfers Monero to a single recipient. Responds with the transaction hash of th
 
 Parameters:
 
-    * `address` - a Monero address (*string*)
-    * `amount` - the amount of Monero to transfer (*number*)
-    * `options` - an object with the following properties (*optional*)
-        { mixin: (*number*), // amount of existing transaction outputs to mix yours with (default is 4) 
-          unlockTime: (*number*), // number of blocks before tx is spendable (default is 0)
-          pid: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment) 
+* `address` - a Monero address (*string*)
+* `amount` - the amount of Monero to transfer (*number*)
+* `options` - an object with the following properties (*optional*)
+    
+        {   
+            mixin: (*number*), // amount of existing transaction outputs to mix yours with (default is 4)
+            unlockTime: (*number*), // number of blocks before tx is spendable (default is 0)
+            pid: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment) 
         }
-    * `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
+    
+* `callback` - a callback function that responds with an error or the response data in the following order: (error, data)
 
 Example response:
 
