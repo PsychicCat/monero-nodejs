@@ -2,6 +2,8 @@
 
 A Node.js wallet manager for interacting with Monero's simplewallet over JSON-RPC. 
 
+For more information about Monero, visit: https://getmonero.org/home
+
 ## Install the package 
 
 ### via NPM
