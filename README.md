@@ -89,15 +89,14 @@ Example response:
 Usage:
 
 ```
-Wallet.transfer(address, amount, options, callback);
+Wallet.transfer(destinations, options, callback);
 ```
 
-Transfers Monero to a single recipient. Responds with the transaction hash of the payment.
+Transfers Monero to a single recipient OR a group of recipients in a single transaction. Responds with the transaction hash of the payment.
 
 Parameters:
 
-* `address` - a Monero address (*string*)
-* `amount` - the amount of Monero to transfer (*number*)
+* `destinations` - an object OR an array of objects in the following format: `{amount: (*number*), address: (*string*)}`
 * `options` - an object with the following properties (*optional*)
     
         {   
@@ -114,13 +113,24 @@ Example response:
 { tx_hash: '<b9272a68b0f242769baa1ac2f723b826a7efdc5ba0c71a2feff4f292967936d8>', tx_key: '' }
 ```
 
-### bulkTransfer (coming soon)
+### transferSplit
+Usage:
 
-Transfers Monero to a group of recipients in a single transaction.
+```
+Wallet.transferSplit(destinations, options, callback);
+```
 
-### splitTransfer (coming soon)
+Same as `transfer`, but can split into more than one transaction if necessary. Responds with a list of transaction hashes.
 
-Same as transfer, but can split into more than one transaction if necessary.
+Additional property available for the `options` parameter:
+
+* `new_algorithm` - `true` to use the new transaction construction algorithm. defaults to `false`. (*boolean*)
+
+Example response:
+
+```
+{ tx_hash_list: [ '<f17fb226ebfdf784a0f5814e1c5bb78c19ea26930a0d706c9dc1085a250ceb37>' ] }
+```
 
 ### sweep
 Usage:

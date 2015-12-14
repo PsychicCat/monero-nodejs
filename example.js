@@ -2,7 +2,12 @@ var moneroWallet = require('./lib/wallet.js');
 
 var Wallet = new moneroWallet();
 
-Wallet.transfer('489aMnxwT65NCHAVTvdDQrVw8655oAn1xS28dnvzijmAc2Ru1ksVbgR5bkhHSfEdFfYQM5SveRgE9g3jJzqaPJBe2oPXMTV', 1, function(err, data) {
+var destinations = {
+    amount: 1,
+    address: '47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp'
+};
+
+Wallet.transfer(destinations, function(err, data) {
     if(err){
         console.log(err);
     }
