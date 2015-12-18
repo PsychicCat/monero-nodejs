@@ -13,5 +13,3 @@ Wallet.transfer(destinations, function(err, data) {
     }
     console.log(data);
 });
-
-

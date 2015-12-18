@@ -255,3 +255,22 @@ Example response:
 { payment_id: '<61eec5ffd3b9cb57>',
   standard_address: '47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp' }
 ```
+
+### height 
+Usage
+
+```
+Wallet.height(callback);
+```
+
+Returns the current block height of the daemon.
+
+Parameters:
+
+* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+
+Example response:
+
+```
+{ height: 874458, status: 'OK' }
+```
