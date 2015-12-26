@@ -272,5 +272,5 @@ Parameters:
 Example response:
 
 ```
-{ height: 874458, status: 'OK' }
+{ height: 874458 }
 ```
