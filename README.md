@@ -257,7 +257,7 @@ Example response:
 ```
 
 ### height 
-Usage
+Usage:
 
 ```
 Wallet.height(callback);
@@ -274,3 +274,12 @@ Example response:
 ```
 { height: 874458 }
 ```
+
+### stopWallet
+Usage:
+
+```
+Wallet.stopWallet();
+```
+
+Cleanly shuts down the current simplewallet process.
