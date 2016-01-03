@@ -39,11 +39,21 @@ This creates a wallet using the following simplewallet default RPC settings:
 * `host` - http://127.0.0.1
 * `port` - 18082
 
-To connect to a wallet with different settings, create an instance with these parameters:
+To connect to a wallet with different settings, pass in a configuration object:
 
 ```
-var Wallet = new moneroWallet(host, port);
+var Wallet = new moneroWallet({host: $HOST, port: $PORT});
 ```
+
+## Example Usage
+
+Callbacks have been deprecated, now using promises!
+
+
+    Wallet.balance().then(function(balance) {
+        console.log(balance);
+    });
+
 
 ## Wallet Methods
 
@@ -51,14 +61,10 @@ var Wallet = new moneroWallet(host, port);
 Usage:
 
 ```
-Wallet.balance(callback);
+Wallet.balance();
 ```
 
 Responds with the current balance and unlocked (spendable) balance of the wallet in atomic units. Divide by 1e12 to convert.
-
-Parameters:
-
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
     
 Example response: 
 
@@ -70,14 +76,10 @@ Example response:
 Usage:
 
 ```
-Wallet.address(callback);
+Wallet.address();
 ```
 
 Responds with the Monero address of the wallet.
-
-Parameters:
-
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 Example response:
 
@@ -89,7 +91,7 @@ Example response:
 Usage:
 
 ```
-Wallet.transfer(destinations, options, callback);
+Wallet.transfer(destinations, options);
 ```
 
 Transfers Monero to a single recipient OR a group of recipients in a single transaction. Responds with the transaction hash of the payment.
@@ -104,8 +106,6 @@ Parameters:
             unlockTime: (*number*), // number of blocks before tx is spendable (default is 0)
             pid: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment) 
         }
-    
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 Example response:
 
@@ -117,7 +117,7 @@ Example response:
 Usage:
 
 ```
-Wallet.transferSplit(destinations, options, callback);
+Wallet.transferSplit(destinations, options);
 ```
 
 Same as `transfer`, but can split into more than one transaction if necessary. Responds with a list of transaction hashes.
@@ -136,14 +136,10 @@ Example response:
 Usage:
 
 ```
-Wallet.sweep(callback);
+Wallet.sweep();
 ```
 
 Sends all dust outputs back to the wallet, to make funds easier to spend and mix. Responds with a list of the corresponding transaction hashes.
-
-Parameters:
-
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 Example response:
 
@@ -155,7 +151,7 @@ Example response:
 Usage:
 
 ```
-Wallet.getPayments(paymentID, callback);
+Wallet.getPayments(paymentID);
 ```
 
 Returns a list of incoming payments using a given payment ID.
@@ -163,14 +159,12 @@ Returns a list of incoming payments using a given payment ID.
 Parameters:
 
 * `paymentID` - the payment ID to scan wallet for included transactions (*string*)
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
-
 
 ### getBulkPayments
 Usage:
 
 ```
-Wallet.getBulkPayments(paymentIDs, minHeight, callback);
+Wallet.getBulkPayments(paymentIDs, minHeight);
 ```
 
 Returns a list of incoming payments using a single payment ID or a list of payment IDs from a given height.
@@ -179,13 +173,12 @@ Parameters:
 
 * `paymentIDs` - the payment ID or list of IDs to scan wallet for (*array*)
 * `minHeight` - the minimum block height to begin scanning from (example: 800000) (*number*)
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 ### incomingTransfers
 Usage:
 
 ```
-Wallet.incomingTransfers(type, callback);
+Wallet.incomingTransfers(type);
 ```
 
 Returns a list of incoming transfers to the wallet.
@@ -193,13 +186,12 @@ Returns a list of incoming transfers to the wallet.
 Parameters:
 
 * `type` - accepts `"all"`: all the transfers, `"available"`: only transfers that are not yet spent, or `"unavailable"`: only transfers which have been spent (*string*)
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 ### queryKey
 Usage:
 
 ```
-Wallet.queryKey(type, callback);
+Wallet.queryKey(type);
 ```
 
 Returns the wallet's spend key (mnemonic seed) or view private key.
@@ -207,19 +199,18 @@ Returns the wallet's spend key (mnemonic seed) or view private key.
 Parameters:
 
 * `type` - accepts `"mnemonic"`: the mnemonic seed for restoring the wallet, or `"view_key"`: the wallet's view key (*string*)
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 ### integratedAddress
 Usage:
 
 ```
-Wallet.integratedAddress(paymentID, callback);
+Wallet.integratedAddress(paymentID);
 ```
 
 OR:
 
 ```
-Wallet.integratedAddress(callback);
+Wallet.integratedAddress();
 ```
 
 Make and return a new integrated address from your wallet address and a payment ID.
@@ -227,7 +218,6 @@ Make and return a new integrated address from your wallet address and a payment 
 Parameters:
 
 * `paymentID` - a 64 character hex string. if not provided, a random payment ID is generated. (*string*, optional)
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 Example response:
 
@@ -239,7 +229,7 @@ Example response:
 Usage:
 
 ```
-Wallet.splitIntegrated(address, callback);
+Wallet.splitIntegrated(address);
 ```
 
 Returns the standard address and payment ID corresponding to a given integrated address.
@@ -247,7 +237,6 @@ Returns the standard address and payment ID corresponding to a given integrated 
 Parameters:
 
 * `address` - an integrated Monero address (*string*)
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
 
 Example response:
 
@@ -260,7 +249,7 @@ Example response:
 Usage:
 
 ```
-Wallet.height(callback);
+Wallet.height();
 ```
 
 Returns the current block height of the daemon.
