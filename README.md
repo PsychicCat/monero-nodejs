@@ -36,13 +36,13 @@ var Wallet = new moneroWallet();
 
 This creates a wallet using the following simplewallet default RPC settings:
    
-* `host` - http://127.0.0.1
+* `hostname` - http://127.0.0.1
 * `port` - 18082
 
 To connect to a wallet with different settings, pass in a configuration object:
 
 ```
-var Wallet = new moneroWallet({host: $HOST, port: $PORT});
+var Wallet = new moneroWallet({hostname: $YOUR_HOST_IP, port: $YOUR_PORT});
 ```
 
 ## Example Usage
