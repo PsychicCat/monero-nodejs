@@ -46,6 +46,9 @@ var Wallet = new moneroWallet({hostname: $YOUR_HOST_IP, port: $YOUR_PORT});
 ```
 **Note: versions of monero-nodejs prior to 3.0 require `hostname` with the 'http://' prefix, 3.0 and greater only require the IP address.**
 
+## Testing
+
+
 ## Example Usage
 
 
