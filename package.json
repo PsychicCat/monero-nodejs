@@ -1,6 +1,6 @@
 {
   "name": "monero-nodejs",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "a Node.js Monero wallet manager",
   "main": "./lib/wallet.js",
   "scripts": {
@@ -28,9 +28,5 @@
     "url": "https://github.com/PsychicCat/monero-nodejs/issues"
   },
   "homepage": "https://github.com/PsychicCat/monero-nodejs#readme",
-  "dependencies": {
-    "bluebird": "^3.1.1",
-    "promise-object": "^0.1.5",
-    "request": "^2.67.0"
-  }
+  "dependencies": {}
 }
