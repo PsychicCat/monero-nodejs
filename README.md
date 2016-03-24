@@ -39,10 +39,10 @@ This creates a wallet using the following simplewallet default RPC settings:
 * `hostname` - '127.0.0.1'
 * `port` - 18082
 
-To connect to a wallet with different settings, pass in a configuration object:
+To connect to a wallet with different settings, pass in the values:
 
 ```
-var Wallet = new moneroWallet({hostname: $YOUR_HOST_IP, port: $YOUR_PORT});
+var Wallet = new moneroWallet($HOSTNAME, $PORT);
 ```
 **Note: versions of monero-nodejs prior to 3.0 require `hostname` with the 'http://' prefix, 3.0 and greater only require the IP address.**
 
