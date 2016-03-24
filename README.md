@@ -48,6 +48,11 @@ var Wallet = new moneroWallet({hostname: $YOUR_HOST_IP, port: $YOUR_PORT});
 
 ## Testing
 
+Some basic tests can now be run locally to verify the library and your simplewallet instance are communicating. The tests assume simplewallet will be listening at the default config settings. Tests are run via mocha.
+To run the tests, clone the repository and then:
+    
+    npm install
+    npm test
 
 ## Example Usage
 
