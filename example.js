@@ -3,22 +3,22 @@ var Wallet = new moneroWallet();
 
 // examples
 
-Wallet.integratedAddress().then(function(result){
-    console.log(result);
-});
+// Wallet.integratedAddress().then(function(result){
+//     console.log(result);
+// });
 
-Wallet.balance().then(function(response){
-    console.log(response);
-});
-
-Wallet.address().then(function(response){
-    console.log(response);
-});
-
-Wallet.height().then(function(height){
-    console.log(height);
-});
-
+// Wallet.balance().then(function(response){
+//     console.log(response);
+// });
+//
+// Wallet.address().then(function(response){
+//     console.log(response);
+// });
+//
+// Wallet.height().then(function(height){
+//     console.log(height);
+// });
+//
 Wallet.incomingTransfers('all').then(function(result){
     console.log(result);
 });
