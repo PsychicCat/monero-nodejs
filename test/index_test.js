@@ -32,23 +32,5 @@ describe('moneroWallet', () => {
                 })
             })
         })
-
-        describe('transfer()', () => {
-            it('should return a tx hash, or an error message', (done) => {
-                var destination = {};
-                destination.address = '47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp';
-                destination.amount = 1;
-                Wallet.transfer(destination).then(function(result){
-                    if(result.tx_hash){
-                        result.tx_hash.should.be.a.String();
-                    } else {
-                        result.message.should.be.a.String();
-                    }
-                    done();
-                })
-            })
-        })
     })
-
-
 })
