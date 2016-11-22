@@ -30,7 +30,8 @@
   "homepage": "https://github.com/PsychicCat/monero-nodejs#readme",
   "dependencies": {
     "big.js": "^3.1.3",
-    "random-js": "^1.0.8"
+    "random-js": "^1.0.8",
+    "request": "^2.79.0"
   },
   "devDependencies": {
     "mocha": "^2.4.5",
