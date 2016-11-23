@@ -1,16 +1,13 @@
+require('dotenv').config();
 var moneroWallet = require('./lib/wallet');
-var Wallet = new moneroWallet();
+var Wallet = new moneroWallet(process.env.MONERO_HOST);
+var Util = require('./lib/utilities');
 
 // examples
 
-var utils = require('./lib/utilities');
-
-
-var destinations = [{address: 'ababs', amount: 12.35}, {address: 'jasdfkafls', amount: 12.59}];
-
-console.log(Wallet.transfer(destinations));
-
-
+Wallet.balance()
+    .then((result) => console.log(result))
+    .catch((error) => console.log(error));
 
 
 
