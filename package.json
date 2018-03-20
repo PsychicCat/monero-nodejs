@@ -1,6 +1,6 @@
 {
   "name": "monero-nodejs",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "a Node.js Monero wallet manager",
   "main": "./lib/wallet.js",
   "scripts": {
