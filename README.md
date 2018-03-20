@@ -73,6 +73,11 @@ wallet.openWallet(filename, password);
 
 Opens a wallet file.  Returns an empty object if successful.  Used when monero-wallet-rpc is started without a wallet file specified.
 
+Parameters:
+
+* `filename` - Filename of wallet file to open (*string*)
+* `password` - Password of wallet file to open (*string*)
+
 Example response:
 
 ```
