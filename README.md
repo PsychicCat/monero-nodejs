@@ -111,7 +111,12 @@ Parameters:
         {   
             mixin: (*number*), // amount of existing transaction outputs to mix yours with (default is 4)
             unlockTime: (*number*), // number of blocks before tx is spendable (default is 0)
-            pid: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment) 
+            pid: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment)
+            payment_id: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment)
+            do_not_relay: (*boolean*) // optional boolean used to indicate whether a transaction should be relayed or not
+            priority: (*integer*) // optional transaction priority
+            get_tx_hex: (*boolean*) // optional boolean used to indicate that the transaction should be returned as hex string after sending
+            get_tx_key: (*boolean*) // optional boolean used to indicate that the transaction key should be returned after sending
         }
 
 Example response:
