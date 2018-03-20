@@ -64,6 +64,27 @@ To run the tests, clone the repository and then:
 
 ## Wallet Methods
 
+### openWallet
+Usage:
+
+```
+wallet.openWallet(filename, password);
+```
+
+Opens a wallet file.  Returns an empty object if successful.  Used when monero-wallet-rpc is started without a wallet file specified.
+
+Example response:
+
+```
+{}
+```
+
+Example error response:
+
+```
+{ code: -1, message: 'Failed to open wallet' }
+```
+
 ### balance
 Usage:
 
