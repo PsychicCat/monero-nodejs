@@ -64,6 +64,51 @@ To run the tests, clone the repository and then:
 
 ## Wallet Methods
 
+### create_wallet
+Usage:
+
+```
+Wallet.create_wallet('monero_wallet', '', 'English');
+```
+
+Creates a new wallet.
+    
+Parameters:
+
+* `filename` - filename of wallet to create (*string*)
+* `password` - wallet password (*string*)
+* `language` - language to use for mnemonic phrase (*string*)
+
+Example response: 
+
+```
+{}
+```
+
+Returns an object with `error` field if unsuccessful.
+
+### open_walllet
+Usage:
+
+```
+Wallet.open_wallet('monero_wallet', '');
+```
+
+Opens a wallet.
+    
+Parameters:
+
+* `filename` - filename of wallet to open (*string*)
+* `password` -wallet password (*string*)
+
+Example response: 
+
+```
+{}
+```
+
+Returns an object with `error` field if unsuccessful.
+
 ### balance
 Usage:
 
@@ -144,14 +189,29 @@ Example response:
 { tx_hash_list: [ '<f17fb226ebfdf784a0f5814e1c5bb78c19ea26930a0d706c9dc1085a250ceb37>' ] }
 ```
 
-### sweep
+### sweep_dust
 Usage:
 
 ```
-Wallet.sweep();
+Wallet.sweep_dust();
 ```
 
 Sends all dust outputs back to the wallet, to make funds easier to spend and mix. Responds with a list of the corresponding transaction hashes.
+
+Example response:
+
+```
+{ tx_hash_list: [ '<75c666fc96120a643321a5e76c0376b40761582ee40cc4917e8d1379a2c8ad9f>' ] }
+```
+
+### sweep_all
+Usage:
+
+```
+Wallet.sweep_all('47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp');
+```
+
+Sends all spendable outputs to the specified address. Responds with a list of the corresponding transaction hashes.
 
 Example response:
 
