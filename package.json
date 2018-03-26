@@ -1,7 +1,7 @@
 {
   "name": "monero-nodejs",
-  "version": "3.2.2",
-  "description": "a Node.js Monero wallet manager",
+  "version": "4.0.0",
+  "description": "A Monero library written in Node.js.",
   "main": "./lib/wallet.js",
   "scripts": {
     "test": "node_modules/.bin/mocha"
@@ -18,7 +18,7 @@
     "shapeshift",
     "cryptocurrency",
     "Node.js",
-    "simplewallet",
+    "monero-wallet-rpc",
     "bitcoin",
     "bitmonerod"
   ],
@@ -28,7 +28,10 @@
     "url": "https://github.com/PsychicCat/monero-nodejs/issues"
   },
   "homepage": "https://github.com/PsychicCat/monero-nodejs#readme",
-  "dependencies": {},
+  "dependencies": {
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  },
   "devDependencies": {
     "mocha": "^2.4.5",
     "should": "^8.3.0"
