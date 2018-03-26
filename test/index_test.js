@@ -25,7 +25,7 @@ describe('moneroWallet', () => {
                             }
                         }
                     } else {
-                        result.result.should.be.a.Object();
+                        result.should.be.a.Object();
                     }
                     done();
                 })
@@ -35,7 +35,7 @@ describe('moneroWallet', () => {
         describe('open_wallet()', () => {
             it('should open monero_wallet', (done) => {
                 Wallet.open_wallet().then(function(result){
-                    result.result.should.be.a.Object();
+                    result.should.be.a.Object();
                     done();
                 })
             })
@@ -44,7 +44,7 @@ describe('moneroWallet', () => {
         describe('balance()', () => {
             it('should retrieve the account balance', (done) => {
                 Wallet.balance().then(function(result){
-                    result.result.balance.should.be.a.Number();
+                    result.balance.should.be.a.Number();
                     done();
                 })
             })
@@ -53,7 +53,7 @@ describe('moneroWallet', () => {
         describe('address()', () => {
             it('should return the account address', (done) => {
                 Wallet.address().then(function(result){
-                    result.result.address.should.be.a.String();
+                    result.address.should.be.a.String();
                     done();
                 })
             })
