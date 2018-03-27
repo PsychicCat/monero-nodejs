@@ -2,13 +2,14 @@
 var moneroWallet = require('../lib/wallet');
 
 describe('moneroWallet', () => {
-    const Wallet = new moneroWallet('127.0.0.1', 28083, 'user', 'pass');
+    const Wallet = new moneroWallet('127.0.0.1', 28082, 'user', 'pass'); // Edit to match your own hostname, port, RPC username (if RPC login enabled,) and RPC password.
 
+    // Disabled these checks because users may access unique daemon hostname:port combinations.
     // describe('constructor', () => {
     //     it('should have default host set to `127.0.0.1`', () => {
     //         new moneroWallet().hostname.should.equal('127.0.0.1');
     //     });
-
+    //
     //     // it('should have default port set to 18082', () => {
     //     //     new moneroWallet().port.should.equal(18082);
     //     // });
@@ -16,8 +17,8 @@ describe('moneroWallet', () => {
 
     describe('methods', () => {
         describe('create_wallet()', () => {
-            it('should create a new wallet monero_wallet (if monero_wallet doesn\'t exist))', (done) => {
-                Wallet.create_wallet('asdasd').then(function(result){
+            it('should create a new wallet monero_wallet (if monero_wallet doesn\'t exist)', (done) => {
+                Wallet.create_wallet('monero_wallet').then(function(result){
                     if (result.hasOwnProperty('error')) {
                         if (result.hasOwnProperty('error')) {
                             if (result.error.code == -21) {
@@ -34,7 +35,7 @@ describe('moneroWallet', () => {
 
         describe('open_wallet()', () => {
             it('should open monero_wallet', (done) => {
-                Wallet.open_wallet().then(function(result){
+                Wallet.open_wallet('monero_wallet').then(function(result){
                     result.should.be.a.Object();
                     done();
                 })
