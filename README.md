@@ -1,21 +1,21 @@
 # monero-nodejs
 
-A Node.js wallet manager for interacting with Monero's simplewallet over JSON-RPC. 
+A Node.js wallet manager for interacting with `monero-wallet-rpc`.
 
-For more information about Monero, visit: https://getmonero.org/home
+For more information about Monero, visit: https://getmonero.org
 
-Donations:
+If you found this useful, please consider [contributing](https://getmonero.org/get-started/contributing/) to the Monero Project!
 
-XMR: `47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp`
-
-## Install the package 
+## Install the package
 
 ### via NPM
+
 ```
 npm install monero-nodejs
 ```
 
 ### Or clone the Github repository
+
 ```
 git clone https://github.com/PsychicCat/monero-nodejs.git
 ```
@@ -35,7 +35,7 @@ var Wallet = new moneroWallet();
 ```
 
 This creates a wallet using the following simplewallet default RPC settings:
-   
+
 * `hostname` - '127.0.0.1'
 * `port` - 18082
 
@@ -44,27 +44,27 @@ To connect to a wallet with different settings, pass in the values:
 ```
 var Wallet = new moneroWallet($HOSTNAME, $PORT);
 ```
+
 **Note: versions of monero-nodejs prior to 3.0 require `hostname` with the 'http://' prefix, 3.0 and greater only require the IP address.**
 
 ## Testing
 
 Some basic tests can now be run locally to verify the library and your simplewallet instance are communicating. The tests assume simplewallet will be listening at the default config settings. Tests are run via mocha.
 To run the tests, clone the repository and then:
-    
-    npm install
-    npm test
+
+npm install
+npm test
 
 ## Example Usage
-
 
     Wallet.balance().then(function(balance) {
         console.log(balance);
     });
 
-
 ## Wallet Methods
 
 ### create_wallet
+
 Usage:
 
 ```
@@ -72,14 +72,14 @@ Wallet.create_wallet('monero_wallet', '', 'English');
 ```
 
 Creates a new wallet.
-    
+
 Parameters:
 
-* `filename` - filename of wallet to create (*string*)
-* `password` - wallet password (*string*)
-* `language` - language to use for mnemonic phrase (*string*)
+* `filename` - filename of wallet to create (_string_)
+* `password` - wallet password (_string_)
+* `language` - language to use for mnemonic phrase (_string_)
 
-Example response: 
+Example response:
 
 ```
 {}
@@ -88,6 +88,7 @@ Example response:
 Returns an object with `error` field if unsuccessful.
 
 ### open_walllet
+
 Usage:
 
 ```
@@ -95,13 +96,13 @@ Wallet.open_wallet('monero_wallet', '');
 ```
 
 Opens a wallet.
-    
+
 Parameters:
 
-* `filename` - filename of wallet to open (*string*)
-* `password` -wallet password (*string*)
+* `filename` - filename of wallet to open (_string_)
+* `password` -wallet password (_string_)
 
-Example response: 
+Example response:
 
 ```
 {}
@@ -110,6 +111,7 @@ Example response:
 Returns an object with `error` field if unsuccessful.
 
 ### balance
+
 Usage:
 
 ```
@@ -117,14 +119,15 @@ Wallet.balance();
 ```
 
 Responds with the current balance and unlocked (spendable) balance of the wallet in atomic units. Divide by 1e12 to convert.
-    
-Example response: 
+
+Example response:
 
 ```
 { balance: 3611980142579999, unlocked_balance: 3611980142579999 }
 ```
 
 ### address
+
 Usage:
 
 ```
@@ -136,10 +139,11 @@ Responds with the Monero address of the wallet.
 Example response:
 
 ```
-{ address: '47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp' }
+{ address: '44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A' }
 ```
 
 ### transfer
+
 Usage:
 
 ```
@@ -151,18 +155,17 @@ Transfers Monero to a single recipient OR a group of recipients in a single tran
 Parameters:
 
 * `destinations` - an object OR an array of objects in the following format: `{amount: (*number*), address: (*string*)}`
-* `options` - an object with the following properties (*optional*)
-    
-        {   
-            mixin: (*number*), // amount of existing transaction outputs to mix yours with (default is 4)
-            unlockTime: (*number*), // number of blocks before tx is spendable (default is 0)
-            pid: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment)
-            payment_id: (*string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment)
-            do_not_relay: (*boolean*) // optional boolean used to indicate whether a transaction should be relayed or not
-            priority: (*integer*) // optional transaction priority
-            get_tx_hex: (*boolean*) // optional boolean used to indicate that the transaction should be returned as hex string after sending
-            get_tx_key: (*boolean*) // optional boolean used to indicate that the transaction key should be returned after sending
-        }
+* `options` - an object with the following properties (_optional_)
+  {
+  mixin: (_number_), // amount of existing transaction outputs to mix yours with (default is 4)
+  unlockTime: (_number_), // number of blocks before tx is spendable (default is 0)
+  pid: (_string_) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment)
+  payment*id: (\_string*) // optional payment ID (a 64 character hexadecimal string used for identifying the sender of a payment)
+  do*not_relay: (\_boolean*) // optional boolean used to indicate whether a transaction should be relayed or not
+  priority: (_integer_) // optional transaction priority
+  get*tx_hex: (\_boolean*) // optional boolean used to indicate that the transaction should be returned as hex string after sending
+  get*tx_key: (\_boolean*) // optional boolean used to indicate that the transaction key should be returned after sending
+  }
 
 Example response:
 
@@ -171,6 +174,7 @@ Example response:
 ```
 
 ### transferSplit
+
 Usage:
 
 ```
@@ -181,7 +185,7 @@ Same as `transfer`, but can split into more than one transaction if necessary. R
 
 Additional property available for the `options` parameter:
 
-* `new_algorithm` - `true` to use the new transaction construction algorithm. defaults to `false`. (*boolean*)
+* `new_algorithm` - `true` to use the new transaction construction algorithm. defaults to `false`. (_boolean_)
 
 Example response:
 
@@ -190,6 +194,7 @@ Example response:
 ```
 
 ### sweep_dust
+
 Usage:
 
 ```
@@ -205,10 +210,11 @@ Example response:
 ```
 
 ### sweep_all
+
 Usage:
 
 ```
-Wallet.sweep_all('47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp');
+Wallet.sweep_all('44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A');
 ```
 
 Sends all spendable outputs to the specified address. Responds with a list of the corresponding transaction hashes.
@@ -220,6 +226,7 @@ Example response:
 ```
 
 ### getPayments
+
 Usage:
 
 ```
@@ -230,9 +237,10 @@ Returns a list of incoming payments using a given payment ID.
 
 Parameters:
 
-* `paymentID` - the payment ID to scan wallet for included transactions (*string*)
+* `paymentID` - the payment ID to scan wallet for included transactions (_string_)
 
 ### getBulkPayments
+
 Usage:
 
 ```
@@ -243,10 +251,11 @@ Returns a list of incoming payments using a single payment ID or a list of payme
 
 Parameters:
 
-* `paymentIDs` - the payment ID or list of IDs to scan wallet for (*array*)
-* `minHeight` - the minimum block height to begin scanning from (example: 800000) (*number*)
+* `paymentIDs` - the payment ID or list of IDs to scan wallet for (_array_)
+* `minHeight` - the minimum block height to begin scanning from (example: 800000) (_number_)
 
 ### incomingTransfers
+
 Usage:
 
 ```
@@ -257,9 +266,10 @@ Returns a list of incoming transfers to the wallet.
 
 Parameters:
 
-* `type` - accepts `"all"`: all the transfers, `"available"`: only transfers that are not yet spent, or `"unavailable"`: only transfers which have been spent (*string*)
+* `type` - accepts `"all"`: all the transfers, `"available"`: only transfers that are not yet spent, or `"unavailable"`: only transfers which have been spent (_string_)
 
 ### queryKey
+
 Usage:
 
 ```
@@ -270,9 +280,10 @@ Returns the wallet's spend key (mnemonic seed) or view private key.
 
 Parameters:
 
-* `type` - accepts `"mnemonic"`: the mnemonic seed for restoring the wallet, or `"view_key"`: the wallet's view key (*string*)
+* `type` - accepts `"mnemonic"`: the mnemonic seed for restoring the wallet, or `"view_key"`: the wallet's view key (_string_)
 
 ### integratedAddress
+
 Usage:
 
 ```
@@ -289,7 +300,7 @@ Make and return a new integrated address from your wallet address and a payment 
 
 Parameters:
 
-* `paymentID` - a 64 character hex string. if not provided, a random payment ID is generated. (*string*, optional)
+* `paymentID` - a 64 character hex string. if not provided, a random payment ID is generated. (_string_, optional)
 
 Example response:
 
@@ -298,6 +309,7 @@ Example response:
 ```
 
 ### splitIntegrated
+
 Usage:
 
 ```
@@ -308,16 +320,17 @@ Returns the standard address and payment ID corresponding to a given integrated 
 
 Parameters:
 
-* `address` - an integrated Monero address (*string*)
+* `address` - an integrated Monero address (_string_)
 
 Example response:
 
 ```
 { payment_id: '<61eec5ffd3b9cb57>',
-  standard_address: '47Vmj6BXSRPax69cVdqVP5APVLkcxxjjXdcP9fJWZdNc5mEpn3fXQY1CFmJDvyUXzj2Fy9XafvUgMbW91ZoqwqmQ6RjbVtp' }
+  standard_address: '44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A' }
 ```
 
-### height 
+### height
+
 Usage:
 
 ```
@@ -328,7 +341,7 @@ Returns the current block height of the daemon.
 
 Parameters:
 
-* `callback` - a callback function that responds with an error or the response data in the following order: (*error, data*)
+* `callback` - a callback function that responds with an error or the response data in the following order: (_error, data_)
 
 Example response:
 
@@ -337,6 +350,7 @@ Example response:
 ```
 
 ### stopWallet
+
 Usage:
 
 ```

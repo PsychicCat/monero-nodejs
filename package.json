@@ -22,7 +22,6 @@
     "bitcoin",
     "bitmonerod"
   ],
-  "author": "Brendan Telzrow",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/PsychicCat/monero-nodejs/issues"
