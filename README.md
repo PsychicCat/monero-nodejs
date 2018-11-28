@@ -53,7 +53,10 @@ Some basic tests can now be run locally to verify the library and your simplewal
 To run the tests, clone the repository and then:
 
 npm install
-npm test
+
+Run npm test script with params to match your own hostname, port, RPC username (if RPC login enabled,) and RPC password.
+
+npm --port=38083 --host=127.0.0.1 --user=user --password=password run test
 
 ## Example Usage
 
